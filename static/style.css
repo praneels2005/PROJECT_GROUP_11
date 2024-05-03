@@ -1,0 +1,94 @@
+/* 
+This file is responsible for all the styling of our UI to make it more visually pleasing.
+We have automatically applied a dark theme to the webpages as to not be strenuous on the eyes.
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #555555;
+}
+
+header {
+    background-color: #303030;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #444;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    color: #fff;
+}
+
+footer {
+    background-color: #303030;
+    color: #fff;
+    text-align: center;
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.scroll-hover {
+    color: rgb(121, 255, 248);
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: -25px;
+    font-weight: 500;
+}
+
+.scroll-hover:hover {
+    background-color: rgb(0, 20, 52); /* Adjust background color as needed */
+}
+
+th:tr {
+	color: blue;
+}
+tr:nth-of-type(2n+1){
+    border: 1px solid black;
+    background-color: rgba(150, 150, 150, 0.5);
+}
+td{
+    padding: 8px 8px;
+    border: 1px solid black;
+}
+h2 {
+	color: #BBF;
+	margin-left: 20px;
+}
+h4 {
+	color: white;
+	margin-left: 20px;
+}
+p {
+	color: white;
+	margin-left: 20px;
+}
+div {
+	color: white;
+	margin-left: 20px;
+}

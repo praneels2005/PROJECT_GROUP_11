@@ -1,0 +1,227 @@
+<!--
+    Main HTML file for the home page
+    This page shows all buttons and forms for the user to fill out to retrieve all queries
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 11 Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="favicon.png">
+	<link rel="script.js" href="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Group 11 Project</h1>
+    </header>
+    <nav>
+        <ul> <!-- Navigation bar -->
+            <div class="link-container">
+                <li><a style="color: #FFFFFF; font-weight: bold;">Home Page</a></li>
+                <li><a style="color: #A0A0A0;">Results Page</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#birthweights">Birth Weights</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#doebirths">Doe Births</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#kidamt">Kid Amount</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#newoldwt">Dam Weight</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#damnums">Dam Numbers</a></li>
+				<li><a class="scroll-hover" style="color: #00FFFF" href="#vaccines">Vaccines</a></li>
+            </div>
+        </ul>
+    </nav>
+
+	<p style="text-align: center;"><br>Our project uses the goat database to find specific information of goats, along with their traits and activities. In our project, we answer several questions about the goats and their birth weights. By using PostgreSQL to make views and queries, we answer these questions, enabling the user to choose a variety of years, vaccines, and outputs for our project.<br><br></p>
+
+    <!-- The following sections answer the stakeholder topic questions and our own personal question -->
+	<h2 id="birthweights">Birth Weight Comparisons Across Each Year:</h2>
+	<h4>Shows every birth that occured that year and each birthed goat's birth weight.</h4>    
+	<form action="/birthweight-handler" method="POST">
+            <div>
+                <!-- Form input for the button -->
+                Select the Year (2013-2023):
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    </form>
+	<h4>Shows the average birth weight of that year.</h4>
+    <form action="/birthweight-handler2" method="POST">
+            <div>
+                Select the Year (2013-2023): 
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    </form>
+	<h4>Shows birth weight information about a specific goat.</h4>
+    <form action="/birthweight-handler3" method="POST">
+            <div>
+                Select the Tag: 
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    <p></p>
+	</form>
+	<h4>Shows the overall average, lowest and highest average from 2013-2023, and median birth weights.</h4>
+    <form action="/birthweight-info" method="POST">
+                <!-- Regular button with no input -->
+    			<input type="submit" value="Overall Average Birth Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/birthweight-info2" method="POST">
+    			<input type="submit" value="Low Average Birth Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/birthweight-info3" method="POST">
+    			<input type="submit" value="High Average Birth Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/birthweight-info4" method="POST">
+    			<input type="submit" value="Median Birth Weight" style="margin-left: 20px;">
+    </form>
+
+	<h2 id="doebirths">Age of the Dams That Gave Birth:</h2>
+	<h4>Shows the age of every doe that gave birth that year.</h4>    
+	<form action="/doebirthing" method="POST">
+            <div>
+                Select the Year (2013-2023):
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    </form>
+	<h4>Shows the average doe birthing age that year.</h4>
+    <form action="/doebirthing2" method="POST">
+            <div>
+                Select the Year (2013-2023): 
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    </form>
+	<h4>Shows the birthing ages about a specific dam.</h4>
+    <form action="/doebirthing3" method="POST">
+            <div>
+                Select the Tag: 
+                <input type="text" name="INPUT">
+            </div>
+    			<input type="submit" value="Submit" style="margin-left: 20px;">
+    </form>
+
+
+
+	<h2 id="kidamt">Average Weight of Singles, Twins, and Triplets:</h2>
+	<h4>Shows the average weight of single, twin, and triplet kids.</h4>
+    <form action="/kidamt-handler" method="POST">
+    			<input type="submit" value="Average Single Kid Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/kidamt-handler2" method="POST">
+    			<input type="submit" value="Average Twin Kid Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/kidamt-handler3" method="POST">
+    			<input type="submit" value="Average Triplet Kid Weight" style="margin-left: 20px;">
+    </form>
+
+
+
+	<h2 id="newoldwt">Weight of Kids Born From First/Older Dams:</h2>
+	<h4>Shows the weights of kids born from first-time-birthing dams and non-first-time-birthing dams.</h4>
+    <form action="/newoldwt-handler" method="POST">
+    			<input type="submit" value="First Mom Kid Birth Weight" style="margin-left: 20px;">
+    </form>
+	<form action="/newoldwt-handler2" method="POST">
+    			<input type="submit" value="Older Mom Kid Birth Weight" style="margin-left: 20px;">
+    </form>
+    <h4>Shows the average weight of kids born from first-time-birthing dams and non-first-time-birthing dams.</h4>
+    <form action="/newoldwt-handler3" method="POST">
+    			<input type="submit" value="Average First Mom Kid Birth Weight" style="margin-left: 20px;">
+    </form>
+    <form action="/newoldwt-handler4" method="POST">
+    			<input type="submit" value="Average Older Mom Kid Birth Weight" style="margin-left: 20px;">
+    </form>
+
+
+
+	<h2 id="damnums">Amount of Kids Born From First/Older Dams:</h2>
+	<h4>Shows the amount of kids born from first-time-birthing dams and non-first-time-birthing dams.</h4>
+    <form action="/kidnumdif-handler" method="POST">
+    			<input type="submit" value="First Mom Kid Amount" style="margin-left: 20px;">
+    </form>
+	<form action="/kidnumdif2-handler" method="POST">
+    			<input type="submit" value="Older Mom Kid Amount" style="margin-left: 20px;">
+    </form>
+    <h4>Shows the average amount of kids born from first-time-birthing dams and non-first-time-birthing dams.</h4>
+    <form action="/kidnumdif3-handler" method="POST">
+    			<input type="submit" value="Average First Mom Kid Amount" style="margin-left: 20px;">
+    </form>
+    <form action="/kidnumdif4-handler" method="POST">
+    			<input type="submit" value="Average Older Mom Kid Amount" style="margin-left: 20px;">
+    </form>
+
+
+
+	<h2 id="vaccines">Kid Birth Weights of Vaccinated Dams:</h2>
+	<h4>Shows the dams with certain vaccines and their kid's birth weights.</h4>
+    <form action="/vaccine-handler" method="POST">
+    			<input type="submit" value="Lepto/vibrio" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine2-handler" method="POST">
+    			<input type="submit" value="Chlamydia/lepto/vibr" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine3-handler" method="POST">
+    			<input type="submit" value="5 in 1 Vacc" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine4-handler" method="POST">
+    			<input type="submit" value="Chlamydia" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine5-handler" method="POST">
+    			<input type="submit" value="Ivermectin" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine6-handler" method="POST">
+    			<input type="submit" value="DL" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine7-handler" method="POST">
+    			<input type="submit" value="PMHQ INTRANASAL" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine8-handler" method="POST">
+    			<input type="submit" value="CD AND T VACCINE" style="margin-left: 20px;">
+    </form>
+
+
+
+	<h4>Shows the average kid birth weights of the dams with certain vaccines.</h4>
+    <form action="/vaccine9-handler" method="POST">
+    			<input type="submit" value="Lepto/vibrio" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine10-handler" method="POST">
+    			<input type="submit" value="Chlamydia/lepto/vibr" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine11-handler" method="POST">
+    			<input type="submit" value="5 in 1 Vacc" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine12-handler" method="POST">
+    			<input type="submit" value="Chlamydia" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine13-handler" method="POST">
+    			<input type="submit" value="Ivermectin" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine14-handler" method="POST">
+    			<input type="submit" value="DL" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine15-handler" method="POST">
+    			<input type="submit" value="PMHQ INTRANASAL" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine16-handler" method="POST">
+    			<input type="submit" value="CD AND T VACCINE" style="margin-left: 20px;">
+    </form>
+
+
+	<h4>Shows the kid birth weights of unvaccinated dams.</h4>
+    <form action="/vaccine17-handler" method="POST">
+    			<input type="submit" value="No Vaccines" style="margin-left: 20px;">
+    </form>
+    <form action="/vaccine18-handler" method="POST">
+    			<input type="submit" value="No Vaccines Average" style="margin-left: 20px;">
+    </form>
+
+
+	<p><br><br><br></p>
+    <footer>
+        <p><b>CSC 315</b>: Created by <b>Bryan Wieschenberg</b>, <b>Tra-mi Cao</b>, and <b>Praneel Pothukanuri</b></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!-- 
+This is our results page, which is displayed every time the user
+submits a form to show a query.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 11 Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/png" href="favicon.png">
+	<link rel="script.js" href="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1>Group 11 Project</h1>
+    </header>
+    <nav>
+        <ul>
+            <div class="link-container">
+                <li><a style="color: #A0A0A0;">Home Page</a></li>
+                <li><a class="scroll-hover" style="color: #FFFFFF; font-weight: bold;">Results Page</a></li>
+				<li><a style="color: #A0A0A0">Birth Weights</a></li>
+				<li><a style="color: #A0A0A0">Doe Births</a></li>
+				<li><a style="color: #A0A0A0">Kid Amount</a></li>
+				<li><a style="color: #A0A0A0">Dam Weights</a></li>
+				<li><a style="color: #A0A0A0">Dam Numbers</a></li>
+				<li><a style="color: #A0A0A0">Vaccines</a></li>
+            </div>
+        </ul>
+    </nav>
+	        <form action="/return-home" method="POST" style="position: absolute; left: 50%; transform: translate(-50%, 105%);">
+                <input type="submit" value="Return to Home" style="font-weight: bold;">
+        </form>
+	<p><br></p>
+    <main>
+        <section>
+			
+			<!-- Displays a table of the query the user selected or inputted for -->
+
+			<table align="center" style="width: 100%; height: 100px;">
+				<thead>
+					<tr style="background-color: rgba(70, 70, 70, 0.5);">
+					{%for head in heads%}
+						<th>{{head}}</th>
+					{%endfor%}
+					</tr>
+				</thead>
+				<tbody align="center" style="padding: 10px;">
+				{% for row in rows %}
+					<tr>
+					{% for col in row %}
+						<td>{{col}}</td>
+					{%endfor%}
+					</tr>
+				{%endfor%}
+				</tbody>
+			</table>
+        </section>
+    </main>
+	<p><br></p>
+    <footer>
+        <p><b>CSC 315</b>: Created by <b>Bryan Wieschenberg</b>, <b>Tra-mi Cao</b>, and <b>Praneel Pothukanuri</b></p>
+    </footer>
+</body>
+</html>
